@@ -1,16 +1,17 @@
 <template>
   <div id="app">
-    <Form />
+    <h1>Pokémon</h1>
+    <Cards />
   </div>
 </template>
 
 <script>
-import Form from "./components/Form.vue";
+import Cards from "./components/Cards.vue";
 
 export default {
   name: "App",
   components: {
-    Form,
+    Cards,
   },
 };
 </script>

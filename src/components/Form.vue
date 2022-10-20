@@ -5,8 +5,8 @@
       <input
         placeholder="nome do pokemon"
         type="text"
-        name="pokemon"
-        v-model="pokemon"
+        name="name"
+        v-model="name"
       />
     </p>
     <button v-on:click="searchPokemon" type="submit">Pesquisar</button>
@@ -17,18 +17,18 @@
 export default {
   data() {
     return {
-      pokemon: "",
+      name: "",
     };
   },
   methods: {
     searchPokemon() {
-      if (this.pokemon.trim() === "") {
+      if (this.name.trim() === "") {
         return;
       }
       this.$emit("show-pokemon", {
-        pokemon: this.pokemon,
+        name: this.name,
       });
-      this.pokemon = "";
+      this.name = "";
     },
   },
 };
