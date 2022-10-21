@@ -43,7 +43,6 @@ export default {
           this.pokemons.push(pokemonData);
           evolutionChain = evolutionChain?.evolves_to[0];
         }
-        console.log(this.pokemons);
       } catch (error) {
         alert(error?.response.data);
         console.log(error);
