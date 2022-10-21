@@ -48,8 +48,10 @@ export default {
           evolutionChain = evolutionChain?.evolves_to[0];
         }
       } catch (error) {
-        alert(error?.response.data);
-        console.log(error);
+        if (error?.response?.status === 404) {
+          return alert(error?.response.data);
+        }
+        alert("Something went wrong. Try another Pokémon!");
       } finally {
         this.disabled = false;
       }
