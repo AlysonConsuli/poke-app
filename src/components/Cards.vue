@@ -2,22 +2,23 @@
 <template>
   <div>
     <Form v-on:show-pokemon="showPokemons"></Form>
-    <div v-for="(pokemon, index) in pokemons" :key="index">
-      <img :src="pokemon.sprites.front_default" :alt="pokemon.name" />
-      <span>
-        <strong>{{ pokemon.name }}</strong>
-      </span>
-    </div>
+    <Card
+      v-for="(pokemon, index) in pokemons"
+      :pokemon="pokemon"
+      :key="index"
+    ></Card>
   </div>
 </template>
 
 <script>
 import Form from "./Form.vue";
+import Card from "./Card.vue";
 import axios from "axios";
 
 export default {
   components: {
     Form,
+    Card,
   },
   data() {
     return {
