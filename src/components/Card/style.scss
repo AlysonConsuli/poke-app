@@ -22,3 +22,17 @@
     font-weight: 700;
   }
 }
+
+.type {
+  text-align: start;
+  padding-left: 6px;
+}
+
+.infos {
+  @include flex(column);
+  align-items: flex-start;
+  list-style: disc;
+  padding-left: 23px;
+  gap: 3px;
+  margin: 4px 0;
+}

@@ -7,18 +7,19 @@
         <strong>{{ pokemon.name }}</strong>
       </span>
     </div>
-    <div class="infos" v-if="isOpen">
-      <div>
+    <div class="collapse" v-if="isOpen">
+      <div class="type">
         <span>Type:</span>
         <span v-for="(types, index) in pokemon.types" :key="index">
           {{ types.type.name }}
+          {{ pokemon.types.length - 1 !== index ? "/" : "" }}
         </span>
       </div>
-      <div>
-        <span v-for="(stats, index) in pokemon.stats" :key="index">
+      <ul class="infos">
+        <li v-for="(stats, index) in pokemon.stats" :key="index">
           {{ stats.stat.name }}: {{ stats.base_stat }}
-        </span>
-      </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
