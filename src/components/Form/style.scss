@@ -1,12 +1,21 @@
 @import "../../assets/scss/index.scss";
 
-button {
-  @include btn(100px, 30px, 20px, 13px);
+.form {
+  @include flex(column);
+  margin-top: 23px;
+  gap: 13px;
   @media (max-width: $mobile) {
-    @include btn(80px, 25px, 18px, 11px);
+    gap: 11px;
+  }
+}
+
+button {
+  @include btn(100px, 30px, 20px);
+  @media (max-width: $mobile) {
+    @include btn(80px, 25px, 18px);
   }
 }
 
 input {
-  @include input;
+  @include input(200px, 30px);
 }

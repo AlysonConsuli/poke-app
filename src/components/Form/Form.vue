@@ -1,14 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div v-on:keydown.enter="searchPokemon">
-    <p>
-      <input
-        placeholder="pokemon name"
-        type="text"
-        name="name"
-        v-model="name"
-      />
-    </p>
+  <div class="form" v-on:keydown.enter="searchPokemon">
+    <input placeholder="pokemon name" type="text" name="name" v-model="name" />
     <button @click="searchPokemon" type="submit" :disabled="disabled">
       {{ !disabled ? "Search" : "" }}
     </button>

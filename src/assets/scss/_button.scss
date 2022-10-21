@@ -1,6 +1,6 @@
 @import "./colors";
 
-@mixin btn($width, $height, $font-size, $margin-top) {
+@mixin btn($width, $height, $font-size) {
   border-radius: 6px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
   cursor: pointer;
@@ -9,7 +9,6 @@
   width: $width;
   height: $height;
   font-size: $font-size;
-  margin-top: $margin-top;
   &:hover {
     background: darken($btn-color, 8%);
     transition: all 0.3s ease;
