@@ -26,9 +26,7 @@ export default {
   },
   methods: {
     searchPokemon() {
-      if (this.name.trim() === "") {
-        return;
-      }
+      if (this.name.trim() === "") return;
       this.$emit("show-pokemon", {
         name: this.name.trim().toLocaleLowerCase(),
       });

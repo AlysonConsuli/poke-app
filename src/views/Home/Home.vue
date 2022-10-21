@@ -18,7 +18,8 @@
 <script>
 import Form from "../../components/Form/Form.vue";
 import Card from "../../components/Card/Card.vue";
-import axios from "axios";
+import getPokemons from "../../utils/getPokemons";
+import getError from "../../utils/getError";
 
 export default {
   components: {
@@ -35,28 +36,12 @@ export default {
   methods: {
     async showPokemons(pokemon) {
       this.disabled = true;
-      const URL = "https://pokeapi.co/api/v2";
       this.pokemons.length = 0;
       this.error = "";
       try {
-        const { data: specie } = await axios.get(
-          `${URL}/pokemon-species/${pokemon.name}`,
-        );
-        const { data: evolution } = await axios.get(specie.evolution_chain.url);
-        let evolutionChain = evolution.chain;
-        while (evolutionChain) {
-          const name = evolutionChain?.species.name;
-          const { data: pokemonData } = await axios.get(
-            `${URL}/pokemon/${name}`,
-          );
-          this.pokemons.push(pokemonData);
-          evolutionChain = evolutionChain?.evolves_to[0];
-        }
+        this.pokemons = await getPokemons(pokemon);
       } catch (error) {
-        if (error?.response?.status === 404) {
-          return (this.error = "Pokémon not found!");
-        }
-        this.error = "Something went wrong. Try another Pokémon!";
+        this.error = getError(error);
       } finally {
         this.disabled = false;
       }
