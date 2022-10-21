@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import Form from "../Form/Form.vue";
-import Card from "../Card/Card.vue";
+import Form from "../../components/Form/Form.vue";
+import Card from "../../components/Card/Card.vue";
 import axios from "axios";
 
 export default {

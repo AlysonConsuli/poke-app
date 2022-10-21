@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <h1>Pokémon</h1>
-    <Cards />
+    <Home />
   </div>
 </template>
 
 <script>
-import Cards from "../components/Cards/Cards.vue";
+import Home from "../views/Home/Home.vue";
 
 export default {
   name: "App",
   components: {
-    Cards,
+    Home,
   },
 };
 </script>
