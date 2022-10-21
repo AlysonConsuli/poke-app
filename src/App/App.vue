@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Pokémon</h1>
+    <img src="../assets/images/pokemon.svg" alt="pokemon" />
     <Home />
   </div>
 </template>
