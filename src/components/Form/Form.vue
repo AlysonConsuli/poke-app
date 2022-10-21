@@ -1,8 +1,8 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="form" v-on:keydown.enter="searchPokemon">
+  <form v-on:keydown.enter="searchPokemon">
     <input placeholder="pokemon name" type="text" name="name" v-model="name" />
-    <button @click="searchPokemon" type="submit" :disabled="disabled">
+    <button @click.prevent="searchPokemon" type="submit" :disabled="disabled">
       <span v-if="!disabled">Search</span>
       <v-progress-circular
         v-else
@@ -11,7 +11,7 @@
         width="2"
       ></v-progress-circular>
     </button>
-  </div>
+  </form>
 </template>
 
 <script>

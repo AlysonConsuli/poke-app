@@ -1,6 +1,6 @@
 @import "../../assets/scss/index.scss";
 
-.form {
+form {
   @include flex(column);
   margin-top: 23px;
   gap: 13px;
