@@ -26,7 +26,7 @@ export default {
         return;
       }
       this.$emit("show-pokemon", {
-        name: this.name,
+        name: this.name.trim().toLocaleLowerCase(),
       });
       this.name = "";
     },
