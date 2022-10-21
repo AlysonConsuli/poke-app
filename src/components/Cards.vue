@@ -3,8 +3,9 @@
   <div>
     <Form v-on:show-pokemon="showPokemons"></Form>
     <div v-for="(pokemon, index) in pokemons" :key="index">
+      <img :src="pokemon.sprites.front_default" :alt="pokemon.name" />
       <span>
-        <strong>{{ pokemon }}</strong>
+        <strong>{{ pokemon.name }}</strong>
       </span>
     </div>
   </div>
@@ -25,17 +26,23 @@ export default {
   },
   methods: {
     async showPokemons(pokemon) {
+      const URL = "https://pokeapi.co/api/v2";
+      this.pokemons.length = 0;
       try {
-        this.pokemons.length = 0;
         const { data: specie } = await axios.get(
-          `https://pokeapi.co/api/v2/pokemon-species/${pokemon.name}`,
+          `${URL}/pokemon-species/${pokemon.name}`,
         );
-        const { data } = await axios.get(specie.evolution_chain.url);
-        let evolutionChain = data.chain;
+        const { data: evolution } = await axios.get(specie.evolution_chain.url);
+        let evolutionChain = evolution.chain;
         while (evolutionChain) {
-          this.pokemons.push(evolutionChain?.species.name);
+          const name = evolutionChain?.species.name;
+          const { data: pokemonData } = await axios.get(
+            `${URL}/pokemon/${name}`,
+          );
+          this.pokemons.push(pokemonData);
           evolutionChain = evolutionChain?.evolves_to[0];
         }
+        console.log(this.pokemons);
       } catch (error) {
         alert(error?.response.data);
         console.log(error);
