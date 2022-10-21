@@ -1,1 +1,12 @@
 @import "../../assets/scss/index.scss";
+
+button {
+  @include btn(100px, 30px, 20px, 13px);
+  @media (max-width: 400px) {
+    @include btn(80px, 25px, 18px, 11px);
+  }
+}
+
+input {
+  @include input;
+}

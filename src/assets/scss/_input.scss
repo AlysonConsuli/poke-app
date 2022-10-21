@@ -1,0 +1,11 @@
+@import "./colors";
+@import "./mixins";
+
+@mixin input {
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: $primary-color;
+  padding-left: 5px;
+  margin-top: 23px;
+}
