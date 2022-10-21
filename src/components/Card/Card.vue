@@ -1,13 +1,13 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div @click="handleClick">
-    <div>
+  <div class="card" @click="handleClick">
+    <div class="meta">
       <img :src="pokemon.sprites.front_default" :alt="pokemon.name" />
       <span>
         <strong>{{ pokemon.name }}</strong>
       </span>
     </div>
-    <div v-if="isOpen">
+    <div class="infos" v-if="isOpen">
       <div>
         <span>Type:</span>
         <span v-for="(types, index) in pokemon.types" :key="index">
