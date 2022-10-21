@@ -8,6 +8,9 @@
         :pokemon="pokemon"
         :key="index"
       ></Card>
+      <v-alert v-if="error" dense outlined type="error" color="#F15E5F">
+        {{ error }}
+      </v-alert>
     </div>
   </div>
 </template>
@@ -26,6 +29,7 @@ export default {
     return {
       pokemons: [],
       disabled: false,
+      error: "",
     };
   },
   methods: {
@@ -33,6 +37,7 @@ export default {
       this.disabled = true;
       const URL = "https://pokeapi.co/api/v2";
       this.pokemons.length = 0;
+      this.error = "";
       try {
         const { data: specie } = await axios.get(
           `${URL}/pokemon-species/${pokemon.name}`,
@@ -49,9 +54,9 @@ export default {
         }
       } catch (error) {
         if (error?.response?.status === 404) {
-          return alert(error?.response.data);
+          return (this.error = "Pokémon not found!");
         }
-        alert("Something went wrong. Try another Pokémon!");
+        this.error = "Something went wrong. Try another Pokémon!";
       } finally {
         this.disabled = false;
       }
