@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div>
+  <div v-on:keydown.enter="searchPokemon">
     <p>
       <input
         placeholder="pokemon name"
@@ -9,7 +9,7 @@
         v-model="name"
       />
     </p>
-    <button v-on:click="searchPokemon" type="submit">Search</button>
+    <button @click="searchPokemon" type="submit">Search</button>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
     };
   },
   methods: {
-    async searchPokemon() {
+    searchPokemon() {
       if (this.name.trim() === "") {
         return;
       }

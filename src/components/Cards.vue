@@ -24,19 +24,18 @@ export default {
     };
   },
   methods: {
-    async showPokemons(el) {
+    async showPokemons(pokemon) {
       try {
         this.pokemons.length = 0;
         const { data: specie } = await axios.get(
-          `https://pokeapi.co/api/v2/pokemon-species/${el.name}`,
+          `https://pokeapi.co/api/v2/pokemon-species/${pokemon.name}`,
         );
-        const { data: pokemon } = await axios.get(specie.evolution_chain.url);
-        let obj = pokemon.chain;
-        while (obj) {
-          this.pokemons.push(obj?.species.name);
-          obj = obj?.evolves_to[0];
+        const { data } = await axios.get(specie.evolution_chain.url);
+        let evolutionChain = data.chain;
+        while (evolutionChain) {
+          this.pokemons.push(evolutionChain?.species.name);
+          evolutionChain = evolutionChain?.evolves_to[0];
         }
-        console.log(this.pokemons);
       } catch (error) {
         alert(error?.response.data);
         console.log(error);
