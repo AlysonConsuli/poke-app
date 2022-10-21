@@ -7,6 +7,7 @@
         <strong>{{ pokemon.name }}</strong>
       </span>
     </div>
+    <v-icon class="arrow-down" v-if="!isOpen"> mdi-chevron-down </v-icon>
     <div class="collapse" v-if="isOpen">
       <div class="type">
         <span>Type:</span>
@@ -20,6 +21,7 @@
           {{ stats.stat.name }}: {{ stats.base_stat }}
         </li>
       </ul>
+      <v-icon> mdi-chevron-up </v-icon>
     </div>
   </div>
 </template>

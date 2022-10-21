@@ -6,6 +6,8 @@
   min-height: 100px;
   cursor: pointer;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
+  padding-bottom: 2px;
+  position: relative;
 }
 
 .meta {
@@ -33,5 +35,12 @@
   list-style: disc;
   padding-left: 23px;
   gap: 3px;
-  margin: 4px 0;
+  margin-top: 5px;
+  margin-bottom: 2px;
+}
+
+.arrow-down {
+  position: absolute;
+  bottom: 2px;
+  left: calc(100px - 12.5px);
 }
