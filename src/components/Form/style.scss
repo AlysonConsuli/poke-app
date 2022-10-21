@@ -2,7 +2,7 @@
 
 button {
   @include btn(100px, 30px, 20px, 13px);
-  @media (max-width: 400px) {
+  @media (max-width: $mobile) {
     @include btn(80px, 25px, 18px, 11px);
   }
 }

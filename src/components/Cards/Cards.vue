@@ -2,11 +2,13 @@
 <template>
   <div>
     <Form v-on:show-pokemon="showPokemons"></Form>
-    <Card
-      v-for="(pokemon, index) in pokemons"
-      :pokemon="pokemon"
-      :key="index"
-    ></Card>
+    <div class="cards">
+      <Card
+        v-for="(pokemon, index) in pokemons"
+        :pokemon="pokemon"
+        :key="index"
+      ></Card>
+    </div>
   </div>
 </template>
 

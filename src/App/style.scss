@@ -2,15 +2,14 @@
 @import "../assets/scss/index.scss";
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
   text-align: center;
   color: $secondary-color;
   margin-top: 50px;
 }
 
 h1 {
+  font-family: "Times New Roman", Times, serif;
   font-size: 45px;
   cursor: default;
 }
