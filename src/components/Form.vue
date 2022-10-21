@@ -3,13 +3,13 @@
   <div>
     <p>
       <input
-        placeholder="nome do pokemon"
+        placeholder="pokemon name"
         type="text"
         name="name"
         v-model="name"
       />
     </p>
-    <button v-on:click="searchPokemon" type="submit">Pesquisar</button>
+    <button v-on:click="searchPokemon" type="submit">Search</button>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
     };
   },
   methods: {
-    searchPokemon() {
+    async searchPokemon() {
       if (this.name.trim() === "") {
         return;
       }
