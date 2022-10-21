@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import Form from "./Form.vue";
-import Card from "./Card.vue";
+import Form from "../Form/Form.vue";
+import Card from "../Card/Card.vue";
 import axios from "axios";
 
 export default {
@@ -51,3 +51,5 @@ export default {
   },
 };
 </script>
+
+<style src="./style.scss" lang="scss" scoped></style>
