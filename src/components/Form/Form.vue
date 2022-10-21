@@ -9,7 +9,9 @@
         v-model="name"
       />
     </p>
-    <button @click="searchPokemon" type="submit">Search</button>
+    <button @click="searchPokemon" type="submit" :disabled="disabled">
+      {{ !disabled ? "Search" : "" }}
+    </button>
   </div>
 </template>
 
@@ -19,6 +21,9 @@ export default {
     return {
       name: "",
     };
+  },
+  props: {
+    disabled: Boolean,
   },
   methods: {
     searchPokemon() {

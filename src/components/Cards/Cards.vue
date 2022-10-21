@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div>
-    <Form v-on:show-pokemon="showPokemons"></Form>
+    <Form :disabled="disabled" v-on:show-pokemon="showPokemons"></Form>
     <div class="cards">
       <Card
         v-for="(pokemon, index) in pokemons"
@@ -25,10 +25,12 @@ export default {
   data() {
     return {
       pokemons: [],
+      disabled: false,
     };
   },
   methods: {
     async showPokemons(pokemon) {
+      this.disabled = true;
       const URL = "https://pokeapi.co/api/v2";
       this.pokemons.length = 0;
       try {
@@ -48,6 +50,8 @@ export default {
       } catch (error) {
         alert(error?.response.data);
         console.log(error);
+      } finally {
+        this.disabled = false;
       }
     },
   },
