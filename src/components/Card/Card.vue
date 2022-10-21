@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="card" @click="handleClick">
+  <div class="card" @click="handleClick" :style="backgroundColor">
     <div class="meta">
       <img :src="pokemon.sprites.front_default" :alt="pokemon.name" />
       <span>
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import getTypeColor from "../../utils/getTypeColor";
+
 export default {
   data() {
     return {
@@ -37,6 +39,12 @@ export default {
   methods: {
     handleClick() {
       this.isOpen = !this.isOpen;
+    },
+  },
+  computed: {
+    backgroundColor() {
+      const type = this.pokemon.types[0].type.name;
+      return getTypeColor(type);
     },
   },
 };
