@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div>
+  <main>
     <Form :disabled="disabled" v-on:show-pokemon="showPokemons"></Form>
     <div class="cards">
       <Card
@@ -12,7 +12,7 @@
         {{ error }}
       </v-alert>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
