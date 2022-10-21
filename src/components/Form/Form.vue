@@ -3,7 +3,13 @@
   <div class="form" v-on:keydown.enter="searchPokemon">
     <input placeholder="pokemon name" type="text" name="name" v-model="name" />
     <button @click="searchPokemon" type="submit" :disabled="disabled">
-      {{ !disabled ? "Search" : "" }}
+      <span v-if="!disabled">Search</span>
+      <v-progress-circular
+        v-else
+        indeterminate
+        size="18"
+        width="2"
+      ></v-progress-circular>
     </button>
   </div>
 </template>
