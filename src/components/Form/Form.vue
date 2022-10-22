@@ -1,7 +1,14 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <form v-on:keydown.enter="searchPokemon">
-    <input placeholder="pokemon name" type="text" name="name" v-model="name" />
+    <input
+      placeholder="pokemon name"
+      type="text"
+      name="name"
+      v-model="name"
+      :disabled="disabled"
+      autocomplete="off"
+    />
     <button @click.prevent="searchPokemon" type="submit" :disabled="disabled">
       <span v-if="!disabled">Search</span>
       <v-progress-circular
