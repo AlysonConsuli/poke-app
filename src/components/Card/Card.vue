@@ -2,7 +2,7 @@
 <template>
   <div class="card" @click="handleClick" :style="backgroundColor">
     <div class="meta">
-      <img :src="pokemon.sprites.front_default" :alt="pokemon.name" />
+      <img :src="imgSrc" :alt="pokemon.name" />
       <span>
         <strong>{{ pokemon.name }}</strong>
       </span>
@@ -51,6 +51,13 @@ export default {
     },
     collapse() {
       return toggleCollapse(this.isOpen);
+    },
+    imgSrc() {
+      const official_artwork = "official-artwork";
+      return (
+        this.pokemon.sprites.front_default ||
+        this.pokemon.sprites.other[official_artwork].front_default
+      );
     },
   },
 };

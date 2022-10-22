@@ -6,6 +6,9 @@ export default async function getPokemons(pokemon) {
   const { data: specie } = await axios.get(
     `${URL}/pokemon-species/${pokemon.name}`,
   );
+  if (!specie?.evolution_chain?.url) {
+    return await getNewGenPokemon(pokemon, URL);
+  }
   const { data: evolution } = await axios.get(specie.evolution_chain.url);
   let evolutionChain = evolution.chain;
   while (evolutionChain) {
@@ -15,4 +18,11 @@ export default async function getPokemons(pokemon) {
     evolutionChain = evolutionChain?.evolves_to[0];
   }
   return pokemons;
+}
+
+async function getNewGenPokemon(pokemon, URL) {
+  const { data: pokemonData } = await axios.get(
+    `${URL}/pokemon/${pokemon.name}`,
+  );
+  return [pokemonData];
 }
