@@ -8,7 +8,7 @@
       </span>
     </div>
     <v-icon class="arrow-down" v-if="!isOpen"> mdi-chevron-down </v-icon>
-    <div class="collapse" v-if="isOpen">
+    <div class="collapsible" :style="collapse">
       <div class="type">
         <span>Type:</span>
         <span v-for="(types, index) in pokemon.types" :key="index">
@@ -28,6 +28,7 @@
 
 <script>
 import getTypeColor from "../../utils/getTypeColor";
+import toggleCollapse from "../../utils/toggleCollapse";
 
 export default {
   data() {
@@ -47,6 +48,9 @@ export default {
     backgroundColor() {
       const type = this.pokemon.types[0].type.name;
       return getTypeColor(type);
+    },
+    collapse() {
+      return toggleCollapse(this.isOpen);
     },
   },
 };

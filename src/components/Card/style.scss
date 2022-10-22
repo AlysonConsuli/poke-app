@@ -10,6 +10,12 @@
   position: relative;
 }
 
+.collapsible {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
 .meta {
   @include flex(row);
   justify-content: space-between;
