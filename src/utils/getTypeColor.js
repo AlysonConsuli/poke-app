@@ -39,7 +39,19 @@ export default function getTypeColor(type) {
   if (type === "ice") {
     color = "#fff";
   }
-  if (type === "ghost" || type === "dark") {
+  if (type === "ghost") {
+    color = "#595877";
+  }
+  if (type === "flying") {
+    color = "#93B2C6";
+  }
+  if (type === "dragon") {
+    color = "#458A8F";
+  }
+  if (type === "steel") {
+    color = "#5C766D";
+  }
+  if (type === "dark") {
     return {
       background: "#212025",
       color: "#fff",

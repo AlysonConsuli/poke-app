@@ -39,7 +39,14 @@ async function __addPokemons(pokemonEvolution, pokemons) {
 
 async function __pushPokemon(evolutionChain, pokemons) {
   const URL = "https://pokeapi.co/api/v2";
-  const name = evolutionChain?.species.name;
-  const { data: pokemonData } = await axios.get(`${URL}/pokemon/${name}`);
+  // const name = evolutionChain?.species.name;
+  const id = __getPokemonId(evolutionChain);
+  const { data: pokemonData } = await axios.get(`${URL}/pokemon/${id}`);
   pokemons.push(pokemonData);
+}
+
+function __getPokemonId(evolutionChain) {
+  const url = evolutionChain?.species.url;
+  const id = url.split("/")[6];
+  return id;
 }
